@@ -11,9 +11,9 @@ An E-commerce website that's coming from the future
   - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-    - [Contributing](#contributing)
     - [Contact](#contact)
   - [**mail**: anasdev23@gmail.com](#mail-anasdev23gmailcom)
+    - [Contributing](#contributing)
 
 ## Project Description
 
@@ -63,12 +63,13 @@ python manage.py runserver
 
 http://127.0.0.1:8000/
 
-### Contributing
-
-**ANAS HOUMAID**
-
 ### Contact
 
 **mail**: anasdev23@gmail.com
 --
 **Github**: Anashm24
+
+
+### Contributing
+
+**ANAS HOUMAID**
