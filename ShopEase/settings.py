@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ShopEase_db',
         'USER': 'root',
-        'PASSWORD': 'anasubuntu',
+        'PASSWORD': 'anasdev23',
         'HOST': 'localhost',
         'PORT': '3306',
     }
