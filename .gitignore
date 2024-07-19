@@ -1,5 +1,30 @@
+# virtual environment
+venv/
+dj_venv/
+
+# Django specific
+*.log
+*.pot
 *.pyc
 __pycache__/
+db.sqlite3
+media/
 
-# App config
-settings.py
+# Static files
+staticfiles/
+
+# local settings
+local_settings.py
+
+# Environment variables
+.env
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# PyCharm specific
+.idea/
+
+# VSCode specific
+.vscode/
