@@ -31,6 +31,7 @@ This project is a fully functional e-commerce website developed using Django. it
 - Static and Media File Handling
 - Responsive UI using HTML, CSS, Bootstrap
 - Secure and scalable
+  RESTful API
 
 ## Installation
 
