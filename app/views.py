@@ -24,7 +24,7 @@ def home(request):
 
 def logout_user(request):
     logout(request)
-    messages.success("You've been Logged out.")
+    messages.success(request, "You've been Logged out.")
     return redirect('home')
 
 def register(request):

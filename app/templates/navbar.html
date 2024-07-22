@@ -24,9 +24,9 @@
        <li class="custom"><a href="">Contact</a></li>
         <li class="custom"><a href="">About Us</a></li>
         {% if user.is_authenticated %}
-            <li class="Auth"><a href="">Login</a></li>
+            <li class="Auth"><a href="{% url 'logout_user' %}">Logout</a></li>
         {% else %}
-            <li class="Auth"><a href="">logout</a></li>
+            <li class="Auth"><a href="{% url 'home' %}">Login</a></li>
         {% endif %}
     </nav>
 </body>

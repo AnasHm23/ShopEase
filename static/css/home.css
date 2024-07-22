@@ -110,7 +110,7 @@ body {
     height: 42%;
     width: 40%;
     border-radius: 20px;
-    animation: disappear 6s ease;
+    animation: disappear 5s ease;
 }
 
 .newspaper h2 {
@@ -129,4 +129,58 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+.form {
+    position: absolute;
+    width: 25%;
+    height: 15%;
+    top: 10%;
+    left: 70%;
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+    z-index: 1000;
+    border-radius: 25px 25px 10px 10px;
+    animation: disappear 3s ease;
+}
+
+.form h5 {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+}
+
+.butona {
+    border: 0.5px solid rgb(135, 131, 131);
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+    border-radius: 10px;
+}
+
+.butona:hover {
+    transform: scale(1.1);
+}
+
+.mb-3 .form-control {
+    background-color: #7d7d7d;
+    color: #fff;
+    border: 1px solid #313131;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.mb-3 .form-control:focus {
+    border: 1px solid black;
+    box-shadow: 0 0 5px rgba(49, 50, 52, 0.5);
+    outline: none;
+    background-color: #7d7d7d;
+    color: #fff;
+    transform: scale(1.01);
+}
+
+.mb-3 .form-control::selection {
+    background-color: #7d7d7d;
+    color: #fff;
 }
