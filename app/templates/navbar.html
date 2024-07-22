@@ -14,12 +14,15 @@
 <body>
     <!-- As a heading -->
     <nav>
-        <li class="brand"><a href="">ShopEase</a></li>
-        <li><a href="">Home</a></li>
-        <li><a href="">Products</a></li>
-        <li><a href="">Cart</a></li>
-       <li><a href="">Contact</a></li>
-        <li><a href="">About Us</a></li>
+        <li class="brand">
+            <img src="{% static 'images/EaseShopLogo.webp' %}">
+            <a href="">ShopEase</a>
+        </li>
+        <li class="custom"><a href="">Home</a></li>
+        <li class="custom"><a href="">Products</a></li>
+        <li class="custom"><a href="">Cart</a></li>
+       <li class="custom"><a href="">Contact</a></li>
+        <li class="custom"><a href="">About Us</a></li>
         {% if user.is_authenticated %}
             <li class="Auth"><a href="">Login</a></li>
         {% else %}

@@ -1,0 +1,132 @@
+body {
+    position: relative;
+    overflow-y: hidden;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+}
+
+.content {
+    position: absolute;
+    width: 40%;
+    top: 15%;
+    left: 50px;
+}
+
+.content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    color: rgb(33, 33, 33);
+}
+
+.content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    color: rgb(33, 33, 33);
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+.explore {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    top: -40px;
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+    width: 100%;
+    height: 50vh;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.link {
+    position: absolute;
+    top: -20px;
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+    height: 15%;
+    width: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.link:first-of-type {
+    left: 35%;
+    animation: slide_to_middle 3s ease-in-out;
+}
+
+.link:last-of-type {
+    right: 35%;
+    animation: slide_to_middle_reverse 3s ease-in-out;
+}
+
+.link:hover {
+    transform: scale(1.1);
+}
+
+
+@keyframes slide_to_middle {
+    0%, 100% {
+        left: 35%;
+    }
+    50% {
+        left: 50%;
+    }
+}
+
+@keyframes slide_to_middle_reverse {
+    0%, 100% {
+        right: 35%;
+    }
+    50% {
+        right: 50%;
+    }
+}
+
+.newspaper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 12%;
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+    height: 42%;
+    width: 40%;
+    border-radius: 20px;
+    animation: disappear 6s ease;
+}
+
+.newspaper h2 {
+    font-size: 2rem;
+}
+
+.newspaper form input,
+.newspaper form button {
+    background: transparent;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

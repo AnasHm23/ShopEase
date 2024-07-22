@@ -3,27 +3,66 @@ nav {
     justify-content: space-between;
     width: 100%;
     padding: 10px;
+    background: linear-gradient(135deg, #cac7c7, #6d6c6b);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px; 
+    padding: 0; 
+    margin: 0; 
 }
 
 li {
-    list-style: none;
-    text-decoration: none;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-:is(.brand, .Auth) {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.custom {
     width: 15%;
+}
+
+.custom a {
+    color: #3f3e3d;
+}
+
+.brand, 
+.Auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     padding: 5px;
-    border: 1px solid black;
     border-radius: 10px;
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(180deg, #7b7a79, #41403f);
+}
+
+.brand {
+    width: 15%;
+}
+
+.Auth {
+    width: 15%;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .Auth:focus {
