@@ -18,9 +18,7 @@ An E-commerce website that's coming from the future
 
 ## home
 
-![image]([static/images/Screenshot%202024-07-23%20155406.png](https://github.com/Anashm24/ShopEase/blob/main/static/images/Screenshot%202024-07-23%20155406.png))
-![image](https://github.com/Anashm24/django_crm/blob/main/static/images/django_crm.png)
-
+![image](https://github.com/Anashm24/ShopEase/blob/main/static/images/ShopeEase.png)
 
 ## Project Description
 
