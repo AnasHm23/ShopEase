@@ -6,6 +6,7 @@ An E-commerce website that's coming from the future
 
 - [ShopEase](#shopease)
   - [Table of contents](#table-of-contents)
+  - [home](#home)
   - [Project Description](#project-description)
   - [Features](#features)
   - [Installation](#installation)
@@ -14,6 +15,12 @@ An E-commerce website that's coming from the future
     - [Contact](#contact)
   - [**mail**: anasdev23@gmail.com](#mail-anasdev23gmailcom)
     - [Contributing](#contributing)
+
+## home
+
+![image]([static/images/Screenshot%202024-07-23%20155406.png](https://github.com/Anashm24/ShopEase/blob/main/static/images/Screenshot%202024-07-23%20155406.png))
+![image](https://github.com/Anashm24/django_crm/blob/main/static/images/django_crm.png)
+
 
 ## Project Description
 
