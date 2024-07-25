@@ -1,0 +1,16 @@
+<!-- templates/account_activation_email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activate Your ShopEase Account</title>
+</head>
+<body>
+    <p>Hi {{ user.username }},</p>
+    <p>Thank you for registering at ShopEase. Please click the link below to activate your account:</p>
+    
+    <p>"http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Activate your account</p>
+
+    <p>If you did not make this request, please ignore this email.</p>
+</body>
+</html>

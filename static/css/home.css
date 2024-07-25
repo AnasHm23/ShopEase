@@ -213,3 +213,16 @@ body {
     background-color: #7d7d7d;
     color: #fff;
 }
+
+.mb-3 .second {
+    margin-bottom: 0;
+}
+
+.password_reset {
+    display: flex;
+    justify-content: flex-start;
+    transform: translateY(-15px);
+    font-size: small;
+    color: #313131;
+    text-decoration: underline;
+}
