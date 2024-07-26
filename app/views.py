@@ -84,7 +84,7 @@ def activate(request, uidb64, token):
 
 # PASSWORD RESET
 class CustomPasswordResetView(auth_views.PasswordResetView):
-    template_name = 'password_reset.html'
+    template_name = 'home.html'
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
@@ -94,7 +94,7 @@ class CustomPasswordResetView(auth_views.PasswordResetView):
             messages.success(self.request, 'Password reset email has been sent.')
         else:
             messages.error(self.request, 'No account found with that email address.')
-            response = self.render_to_response(self.get_context_data(form=form))
+            return redirect('home')	
         return response
 
 class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
