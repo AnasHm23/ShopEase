@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout, login
 from django.contrib import messages
-from .forms import RegisterForm
+from .forms import RegisterForm, CustomSetPasswordForm
 from django.contrib.auth.models import User
 #email verification
 from django.contrib.sites.shortcuts import get_current_site
@@ -82,22 +82,33 @@ def activate(request, uidb64, token):
         messages.error(request, 'Activation link is invalid!')
         return redirect('home')
 
-
 # PASSWORD RESET
 class CustomPasswordResetView(auth_views.PasswordResetView):
-    template_name = 'home.html'
+    template_name = 'password_reset.html'
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        messages.success(self.request, 'Password reset email has been sent.')
-        return self.render_to_response(self.get_context_data(form=form))
+        email = form.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
+            response = super().form_valid(form)
+            messages.success(self.request, 'Password reset email has been sent.')
+        else:
+            messages.error(self.request, 'No account found with that email address.')
+            response = self.render_to_response(self.get_context_data(form=form))
+        return response
 
 class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
-    template_name = 'home.html'
+    template_name = 'password_reset_confirm.html'
+    form_class = CustomSetPasswordForm
     success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['uid'] = self.kwargs['uidb64']
+        context['token'] = self.kwargs['token']
+        return context
 
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Your password has been reset successfully. You can log in with the new password.')
-        return self.render_to_response(self.get_context_data(form=form))
+        return response

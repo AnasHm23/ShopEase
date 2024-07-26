@@ -42,7 +42,7 @@
                 <!-- Registration Form -->
                 <div id="register-form" style="display: none;">
                     <h5 class="card-title">Register</h5>
-                    <form action="{% url 'home' %}" method="post">
+                    <form action="{% url 'register' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="register">
                         <div class="mb-3">
@@ -71,6 +71,7 @@
                     <h5 class="card-title">Reset Password</h5>
                     <form action="{% url 'password_reset' %}" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="password_reset">
                         <div class="mb-3">
                             <label for="reset-email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="reset-email" name="email" required>
@@ -110,14 +111,17 @@
             loginForm.style.display = 'none';
             registerForm.style.display = 'block';
             passwordResetForm.style.display = 'none';
+            passwordResetConfirmForm.style.display = 'none';
         } else if (formType === 'login') {
             loginForm.style.display = 'block';
             registerForm.style.display = 'none';
             passwordResetForm.style.display = 'none';
+            passwordResetConfirmForm.style.display = 'none';
         } else if (formType === 'reset') {
             loginForm.style.display = 'none';
             registerForm.style.display = 'none';
             passwordResetForm.style.display = 'block';
+            passwordResetConfirmForm.style.display = 'none';
         }
     }
 </script>

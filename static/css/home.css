@@ -226,3 +226,17 @@ body {
     color: #313131;
     text-decoration: underline;
 }
+
+.form-alert {
+    background: linear-gradient(135deg, #666464, #242424);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -120%;
+    opacity: 0;
+    animation: visible 5s ease;
+    border-radius: 10px;
+    color: white;
+}
