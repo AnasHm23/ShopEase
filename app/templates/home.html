@@ -37,6 +37,9 @@
                         <button type="submit" class="butona">Login</button>
                     </form>
                     <a href="#" onclick="toggleForms('register')">Register here</a>
+                    <a href="{% provider_login_url 'google' %}" class="google-login">
+                        <img src="{% static 'img/google-login-button.png' %}" alt="Login with Google">
+                    </a>
                 </div>
 
                 <!-- Registration Form -->

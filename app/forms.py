@@ -1,8 +1,8 @@
-from typing import Any
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, SetPasswordForm
-from django.contrib import messages
+from django.contrib.auth import get_user_model
+from .models import EmailAddress
 
 
 # Override UserCreationForm
@@ -10,8 +10,15 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ['username', 'email', 'password1', 'password2']
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        User = get_user_model()
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("A user with this email address already exists.")
+        return email
 
 # Override SetPasswordForm
 class CustomSetPasswordForm(SetPasswordForm):
@@ -33,3 +40,17 @@ class CustomSetPasswordForm(SetPasswordForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("The two password fields didn't match.")
         return password2
+
+class EmailAddresForm(forms.ModelForm):
+    class Meta:
+        model = EmailAddress
+        fields = ['email', 'is_active']
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        is_active = self.cleaned_data.get('is_active', False)
+
+        if is_active and EmailAddress.objects.filter(email=email, is_active=True).exists():
+            raise forms.ValidationError("active email addresses must be unique.")
+    
+        return email

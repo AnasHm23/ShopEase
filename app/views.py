@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, logout, login
+from django.contrib.auth import authenticate, logout, login, get_user_model
 from django.contrib import messages
-from .forms import RegisterForm, CustomSetPasswordForm
+from .forms import RegisterForm, CustomSetPasswordForm, EmailAddresForm
 from django.contrib.auth.models import User
 #email verification
 from django.contrib.sites.shortcuts import get_current_site
@@ -14,6 +14,9 @@ from .tokens import account_activation_token
 # password reset
 from django.contrib.auth import views as auth_views
 
+
+# User 
+User = get_user_model()
 
 # AUTHENTICATION VIEWS
 def home(request):
