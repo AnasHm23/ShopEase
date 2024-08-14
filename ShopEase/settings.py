@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     # celery
     'django_celery_beat',
     'django_celery_results',
+    # Rest Api
+    'rest_framework',
 ]
 
 AUTHENTICATION_BACKENDS = (

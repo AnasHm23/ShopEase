@@ -16,7 +16,10 @@ from .tokens import account_activation_token
 # password reset
 from django.contrib.auth import views as auth_views
 # models
-from .models import Product
+from .models import Product, Profile
+# rest api
+from rest_framework import viewsets
+from .serializers import ProductSerializer, ProfileSerializer
 
 
 # User 
@@ -128,3 +131,12 @@ def product_list(request):
     else:
         messages.error(request, "You need to log in to view the products.")
         return redirect('home')
+
+# api configuration
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
