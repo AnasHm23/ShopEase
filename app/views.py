@@ -1,18 +1,22 @@
 from django.shortcuts import render, redirect
+# authentication
 from django.contrib.auth import authenticate, logout, login, get_user_model
 from django.contrib import messages
 from .forms import RegisterForm, CustomSetPasswordForm, EmailAddresForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 #email verification
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_str
+from django.utils.encoding import force_bytes
 from django.core.mail import EmailMessage
 from django.urls import reverse, reverse_lazy
 from .tokens import account_activation_token
 # password reset
 from django.contrib.auth import views as auth_views
+# models
+from .models import Product
 
 
 # User 
@@ -115,3 +119,12 @@ class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
         response = super().form_valid(form)
         messages.success(self.request, 'Your password has been reset successfully. You can log in with the new password.')
         return response
+
+def product_list(request):
+    """Display the products"""
+    if request.user.is_authenticated:
+        products = Product.objects.all()
+        return render(request, "products.html", {'content': products})
+    else:
+        messages.error(request, "You need to log in to view the products.")
+        return redirect('home')

@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    
     # app config
     'app.apps.AppConfig',
+    # celery
+    'django_celery_beat',
+    'django_celery_results',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -90,6 +92,11 @@ WSGI_APPLICATION = 'ShopEase.wsgi.application'
 
 # Default session engine
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Session configuration
+SESSION_COOKIE_AGE = 1209600
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = False
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -174,20 +181,27 @@ AUTH_USER_MODEL = 'app.CustomUser'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Social accounts
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'SCOPE': [
-#             'profile',
-#             'email',
-#         ],
-#         'AUTH_PARAMS': {
-#             'access_type': 'online',
-#         },
-#         'OAUTH2_CLIENT_ID': config('OAUTH2_CLIENT_ID'),
-#         'OAUTH2_CLIENT_SECRET': config('OAUTH2_CLIENT_SECRET'),
-#         'OAUTH2_STATIC_CALLBACKS': [
-#             'http://localhost:8000/accounts/google/login/callback/'
-#         ],
-#     }
-# }
+
+# Configuring the cache 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# Configuring celery
+# save Celery task results in Django's database
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+# This configures Redis as the datastore between Django + Celery
+CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://localhost:6379')
+# if you out to use os.environ the config is:
+# CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_REDIS_URL', 'redis://localhost:6379')
+
+
+# this allows you to schedule items in the Django admin.
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'

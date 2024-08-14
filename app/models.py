@@ -32,6 +32,9 @@ class Product(models.Model):
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='products/')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
