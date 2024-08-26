@@ -1,0 +1,18 @@
+.background {
+  position: absolute; /* Allows the element to be positioned relative to the viewport */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-image: url("../images/background_for_website.webp");
+  background-size: cover; /* Ensures the background image covers the entire element */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Places the background behind other content */
+}
+
+.container h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

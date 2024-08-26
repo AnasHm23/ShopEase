@@ -1,129 +1,187 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% load static %}
-{% load socialaccount %}
+{% load socialaccount %} 
 {% block content %}
-<section class="background">
-    <div class="content">
-        {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-        <h2>Discover the Joy of Shopping with ShopEase</h2>
-        <p>Your one-stop shop for everything you need!</p>
-    </div>
-    {% if not user.is_authenticated %}
-    <div class="form">
-        <div class="card">
-            <div class="card-body">
-                <!-- Login Form -->
-                <div id="login-form">
-                    <h5 class="card-title">Login</h5>
-                    <form action="{% url 'home' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="login">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control second" id="password" name="password" required>
-                        </div>
-                        <a href="#" class="password_reset" onclick="toggleForms('reset')">Password reset</a>
-                        <button type="submit" class="butona">Login</button>
-                    </form>
-                    <a href="#" onclick="toggleForms('register')">Register here</a>
-                    {% comment %} <a href="{% provider_login_url 'google' %}" class="google-login">
-                        <img src="{% static 'img/google-login-button.png' %}" alt="Login with Google">
-                    </a> {% endcomment %}
-                </div>
-
-                <!-- Registration Form -->
-                <div id="register-form" style="display: none;">
-                    <h5 class="card-title">Register</h5>
-                    <form action="{% url 'register' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="register">
-                        <div class="mb-3">
-                            <label for="new-username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="new-username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="new-password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="new-password" name="password1" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="repeat-password" class="form-label">Repeat Password</label>
-                            <input type="password" class="form-control" id="repeat-password" name="password2" required>
-                        </div>
-                        <button type="submit" class="butona">Register</button>
-                    </form>
-                    <a href="#" onclick="toggleForms('login')">Login here</a>
-                </div>
-
-                <!-- Password Reset Form -->
-                <div id="password-reset-form" style="display: none;">
-                    <h5 class="card-title">Reset Password</h5>
-                    <form action="{% url 'password_reset' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="password_reset">
-                        <div class="mb-3">
-                            <label for="reset-email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="reset-email" name="email" required>
-                        </div>
-                        <button type="submit" class="butona">Send Reset Link</button>
-                    </form>
-                    <a href="#" onclick="toggleForms('login')">Back to Login</a>
-                </div>
-            </div>
-        </div>
+<div class="background"></div>
+<section class="main">
+  <div class="content">
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div
+        class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+      >
+        {{ message }}
+      </div>
+      {% endfor %}
     </div>
     {% endif %}
+    <h2>Discover the Joy of Shopping with ShopEase</h2>
+    <p>Your one-stop shop for everything you need!</p>
+  </div>
+  {% if not user.is_authenticated %}
+  <div class="form">
+    <div class="card">
+      <div class="card-body">
+        <!-- Login Form -->
+        <div id="login-form">
+          <h5 class="card-title">Login</h5>
+          <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="login" />
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <a href="#" class="password_reset" onclick="toggleForms('reset')"
+              >Password reset</a
+            >
+            <button type="submit" class="butona">Login</button>
+          </form>
+          <a href="#" onclick="toggleForms('register')">Register here</a>
+          {% comment %}
+          <a href="{% provider_login_url 'google' %}" class="google-login">
+            <img
+              src="{% static 'img/google-login-button.png' %}"
+              alt="Login with Google"
+            />
+          </a>
+          {% endcomment %}
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-form" style="display: none">
+          <h5 class="card-title">Register</h5>
+          <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="register" />
+            <div class="mb-3">
+              <label for="new-username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="new-username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="new-password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="new-password"
+                name="password1"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="repeat-password" class="form-label"
+                >Repeat Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="repeat-password"
+                name="password2"
+                required
+              />
+            </div>
+            <button type="submit" class="butona">Register</button>
+          </form>
+          <a href="#" onclick="toggleForms('login')">Login here</a>
+        </div>
+
+        <!-- Password Reset Form -->
+        <div id="password-reset-form" style="display: none">
+          <h5 class="card-title">Reset Password</h5>
+          <form action="{% url 'password_reset' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="password_reset" />
+            <div class="mb-3">
+              <label for="reset-email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="reset-email"
+                name="email"
+                required
+              />
+            </div>
+            <button type="submit" class="butona">Send Reset Link</button>
+          </form>
+          <a href="#" onclick="toggleForms('login')">Back to Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </section>
 <section class="explore">
-    <a href="#" class="link">
-        <i class="fas fa-search"></i> Explore Products
-    </a>
-    <a href="#" class="link">
-        <i class="fas fa-shopping-cart"></i> Place Your Order
-    </a>
-    <div class="newspaper">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Get the latest updates and offers.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </div>
+  <a href="#" class="link"> <i class="fas fa-search"></i> Explore Products </a>
+  <a href="#" class="link">
+    <i class="fas fa-shopping-cart"></i> Place Your Order
+  </a>
+  <div class="newspaper">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get the latest updates and offers.</p>
+    <form id="newsletter-form">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
 </section>
 <script>
-    function toggleForms(formType) {
-        var loginForm = document.getElementById('login-form');
-        var registerForm = document.getElementById('register-form');
-        var passwordResetForm = document.getElementById('password-reset-form');
-        
-        if (formType === 'register') {
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'block';
-            passwordResetForm.style.display = 'none';
-        } else if (formType === 'login') {
-            loginForm.style.display = 'block';
-            registerForm.style.display = 'none';
-            passwordResetForm.style.display = 'none';
-        } else if (formType === 'reset') {
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'none';
-            passwordResetForm.style.display = 'block';
-        }
+  function toggleForms(formType) {
+    var loginForm = document.getElementById("login-form");
+    var registerForm = document.getElementById("register-form");
+    var passwordResetForm = document.getElementById("password-reset-form");
+
+    if (formType === "register") {
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+      passwordResetForm.style.display = "none";
+    } else if (formType === "login") {
+      loginForm.style.display = "block";
+      registerForm.style.display = "none";
+      passwordResetForm.style.display = "none";
+    } else if (formType === "reset") {
+      loginForm.style.display = "none";
+      registerForm.style.display = "none";
+      passwordResetForm.style.display = "block";
     }
+  }
 </script>
 {% endblock %}

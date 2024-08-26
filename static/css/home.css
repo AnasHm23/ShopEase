@@ -1,242 +1,264 @@
+/* Ensure the body takes up the full viewport height */
+html,
 body {
-    position: relative;
-    overflow-y: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; /* This allows the child element to be positioned absolutely */
+}
+
+body {
+  position: relative;
+  overflow-y: hidden;
+}
+
+.main {
+  position: relative;
 }
 
 .background {
-    position: relative;
-    width: 100%;
-    height: 65vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/background_for_website.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .messages {
-    width: 80%;
-    position: absolute;
-    left: calc(80% - 30px);
-    top: 0;
-    opacity: 0;
-    animation: visible 5s ease;
+  width: 80%;
+  position: absolute;
+  left: calc(80% - 30px);
+  top: 10px;
+  opacity: 0;
+  animation: visible 5s ease;
 }
 
 .messages .alert {
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    border: 1px solid black;
-    color: white;
-
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  border: 1px solid black;
+  color: white;
 }
 
 @keyframes visible {
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .content {
-    position: absolute;
-    width: 40%;
-    top: 15%;
-    left: 50px;
+  position: absolute;
+  width: 40%;
+  top: 20px;
+  left: 50px;
 }
 
 .content h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    font-style: italic;
-    color: rgb(33, 33, 33);
+  font-size: 3rem;
+  font-weight: 900;
+  font-style: italic;
+  color: rgb(33, 33, 33);
 }
 
 .content p {
-    font-size: 1.5rem;
-    font-weight: 500;
-    font-style: italic;
-    color: rgb(33, 33, 33);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgb(33, 33, 33);
 }
 
 .background img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
 }
 
 .explore {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 10px;
-    top: -40px;
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    width: 100%;
-    height: 50vh;
-    border-top-left-radius: 60px;
-    border-top-right-radius: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  width: 100%;
+  height: 35vh;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  z-index: 1;
 }
 
 .link {
-    position: absolute;
-    top: -20px;
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    height: 15%;
-    width: 13%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: transform 0.3s ease-in-out;
+  position: absolute;
+  top: -20px;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  height: 15%;
+  width: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
 }
 
 .link:first-of-type {
-    left: 35%;
-    animation: slide_to_middle 3s ease-in-out;
+  left: 35%;
+  animation: slide_to_middle 3s ease-in-out;
 }
 
 .link:last-of-type {
-    right: 35%;
-    animation: slide_to_middle_reverse 3s ease-in-out;
+  right: 35%;
+  animation: slide_to_middle_reverse 3s ease-in-out;
 }
 
 .link:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-
 @keyframes slide_to_middle {
-    0%, 100% {
-        left: 35%;
-    }
-    50% {
-        left: 50%;
-    }
+  0%,
+  100% {
+    left: 35%;
+  }
+  50% {
+    left: 50%;
+  }
 }
 
 @keyframes slide_to_middle_reverse {
-    0%, 100% {
-        right: 35%;
-    }
-    50% {
-        right: 50%;
-    }
+  0%,
+  100% {
+    right: 35%;
+  }
+  50% {
+    right: 50%;
+  }
 }
 
 .newspaper {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 12%;
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    height: 42%;
-    width: 40%;
-    border-radius: 20px;
-    animation: disappear 5s ease;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 20%;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  height: 55%;
+  width: 40%;
+  border-radius: 20px;
+  animation: disappear 5s ease;
 }
 
 .newspaper h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .newspaper form input,
 .newspaper form button {
-    background: transparent;
+  background: transparent;
 }
 
 @keyframes disappear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .form {
-    position: absolute;
-    width: 25%;
-    height: 15%;
-    top: 10%;
-    left: 73%;
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    z-index: 1000;
-    border-radius: 25px 25px 10px 10px;
-    animation: disappear 3s ease;
+  position: absolute;
+  width: 25%;
+  height: 8%;
+  top: 20px;
+  right: 30px;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  z-index: 1000;
+  border-radius: 25px 25px 10px 10px;
+  animation: disappear 3s ease;
+  z-index: 2;
 }
 
 .form h5 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
-    background: linear-gradient(180deg, #7b7a79, #41403f);
+  background: linear-gradient(180deg, #7b7a79, #41403f);
 }
 
 .butona {
-    border: 0.5px solid rgb(135, 131, 131);
-    background: linear-gradient(180deg, #7b7a79, #41403f);
-    border-radius: 10px;
+  border: 0.5px solid rgb(135, 131, 131);
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  border-radius: 10px;
 }
 
 .butona:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .mb-3 .form-control {
-    max-height: 30px;
-    background-color: #7d7d7d;
-    color: #fff;
-    border: 1px solid #313131;
-    padding: 10px;
-    border-radius: 5px;
+  max-height: 30px;
+  background-color: #7d7d7d;
+  color: #fff;
+  border: 1px solid #313131;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-
 .mb-3 .form-control:focus {
-    border: 1px solid black;
-    box-shadow: 0 0 5px rgba(49, 50, 52, 0.5);
-    outline: none;
-    background-color: #7d7d7d;
-    color: #fff;
-    transform: scale(1.01);
+  border: 1px solid black;
+  box-shadow: 0 0 5px rgba(49, 50, 52, 0.5);
+  outline: none;
+  background-color: #7d7d7d;
+  color: #fff;
+  transform: scale(1.01);
 }
 
 .mb-3 .form-control::selection {
-    background-color: #7d7d7d;
-    color: #fff;
+  background-color: #7d7d7d;
+  color: #fff;
 }
 
 .mb-3 .second {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .password_reset {
-    display: flex;
-    justify-content: flex-start;
-    transform: translateY(-15px);
-    font-size: small;
-    color: #313131;
-    text-decoration: underline;
+  display: flex;
+  justify-content: flex-start;
+  transform: translateY(-15px);
+  font-size: small;
+  color: silver;
+  text-decoration: underline;
 }
 
 .form-alert {
-    background: linear-gradient(135deg, #666464, #242424);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: -120%;
-    opacity: 0;
-    animation: visible 5s ease;
-    border-radius: 10px;
-    color: white;
+  background: linear-gradient(135deg, #666464, #242424);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -120%;
+  opacity: 0;
+  animation: visible 5s ease;
+  border-radius: 10px;
+  color: white;
 }

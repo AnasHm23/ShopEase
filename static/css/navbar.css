@@ -3,9 +3,9 @@ nav {
     justify-content: space-between;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(135deg, #cac7c7, #6d6c6b);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background: linear-gradient(135deg, #464646, #6d6c6b);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 nav ul {
@@ -25,7 +25,7 @@ li {
 a {
     display: flex;
     justify-content: center;
-    color: black;
+    color: rgb(185, 185, 185);
     text-decoration: none;
     font-weight: 500;
 }
@@ -35,7 +35,7 @@ a {
 }
 
 .custom a {
-    color: #3f3e3d;
+    color: silver;
 }
 
 .brand, 
