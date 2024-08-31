@@ -8,7 +8,7 @@ body {
 
 body {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .main {
@@ -39,19 +39,27 @@ body {
 
 .messages .alert {
   background: linear-gradient(180deg, #7b7a79, #41403f);
-  border: 1px solid black;
+  border: none;
   color: white;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-style: italic;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px black;
 }
 
 @keyframes visible {
   0% {
-    opacity: 0.5;
+    opacity: 0.3;
+    transform: translateY(0);
   }
   50% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
     opacity: 0;
+    transform: translateY(-100px);
   }
 }
 
@@ -188,9 +196,10 @@ body {
   right: 30px;
   background: linear-gradient(180deg, #7b7a79, #41403f);
   z-index: 1000;
-  border-radius: 25px 25px 10px 10px;
+  border-radius: 25px;
   animation: disappear 3s ease;
   z-index: 2;
+  box-shadow: 5px 5px 10px black;
 }
 
 .form h5 {
@@ -200,6 +209,9 @@ body {
 
 .card {
   background: linear-gradient(180deg, #7b7a79, #41403f);
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px black;
+  border: 1px solid #242424;
 }
 
 .butona {

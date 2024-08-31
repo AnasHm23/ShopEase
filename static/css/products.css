@@ -5,20 +5,24 @@
 }
 
 body {
+  overflow-x: hidden;
   overflow-y: scroll;
+  position: relative;
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   min-height: 100%;
   width: 100%;
-  background-image: url("../images/background_for_website.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url("../images/background_for_website.webp") center/cover
+    no-repeat;
   z-index: -1;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: inset -2px 0px 10px rgb(143, 142, 142),
+    inset 2px 0px 10px rgb(144, 143, 143);
 }
 
 .heading {
@@ -32,6 +36,7 @@ body {
   border-bottom-left-radius: 70px;
   border-bottom-right-radius: 70px;
   box-shadow: 0px 10px 15px -7px black;
+  z-index: 1;
 }
 
 .heading h1,
@@ -39,6 +44,40 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   color: black;
+}
+
+.messages {
+  width: 40%;
+  height: 10%;
+  position: absolute;
+  left: 30%;
+  top: 13%;
+  opacity: 0;
+  animation: visible 5s ease;
+}
+
+.messages .success {
+  padding: 10px;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  color: white;
+  display: flex;
+  font: italic 400 100%;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px black;
+}
+
+@keyframes visible {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
 }
 
 .buttons {
@@ -55,6 +94,20 @@ body {
   border-bottom-left-radius: 70px;
   border-bottom-right-radius: 70px;
   box-shadow: 0px 10px 15px -7px black;
+  animation: elevating 3s ease 0.5s forwards;
+  z-index: -1;
+  opacity: 0;
+}
+
+@keyframes elevating {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 button {
@@ -87,7 +140,13 @@ button:hover {
   transform: scale(1.1);
 }
 
-.container {
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -99,7 +158,75 @@ button:hover {
   justify-items: center;
 }
 
-.container img {
-  height: 30vw;
-  width: 30vh;
+.product p {
+  margin: 0;
+}
+
+.product {
+  position: relative;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+  padding: 5px;
+  width: 22vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px black;
+}
+
+.product.alternate {
+  background: url("../images/background_for_website.webp") center/cover
+    no-repeat;
+}
+
+.product h3 {
+  margin-top: 20px;
+}
+
+.product img {
+  height: 70%;
+  width: 70%;
+  border-radius: 5px;
+}
+
+.quantity {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 20%;
+  padding: 3px;
+  background: rgb(167, 166, 166);
+  color: rgb(69, 68, 68);
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 10px;
+}
+
+.price {
+  width: 15%;
+  height: 20%;
+  color: red;
+}
+
+.seller {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  right: 0;
+  bottom: 0;
+  background: rgb(167, 166, 166);
+  color: rgb(69, 68, 68);
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 30px;
+  padding: 3px;
+  width: 80%;
+}
+
+.product.alternate .seller,
+.product.alternate .quantity {
+  background: linear-gradient(135deg, #464646, #6d6c6b);
+  color: rgb(181, 178, 178);
 }

@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}" />
+<div class="background"></div>
+<div class="messages-container">
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class="{{ message.tags }}" {% endif %} >
+      {{ message }}
+    </li>
+    {% endfor %}
+  <ul>
+  {% endif %}
+</div>
+<div class="product {% if product.id|divisibleby:2 == 0 %}alternate{% endif %}">
+  <h3>{{ product.name }}</h3>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+  <p class="quantity">Qty: {{ product.quantity }}</p>
+  <p class=".description">{{ product.description }}</p>
+  <p class="price">${{ product.price }}</p>
+  <p class="seller">seller: {{ product.user }}</p>
+</div>
+{% endblock %}

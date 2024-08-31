@@ -37,7 +37,7 @@ def home(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You Have Been Logged In!")
-            return redirect('home')
+            return redirect('products')
         else:
             messages.error(request, 'Login failed please try again.')
             return redirect('home')
@@ -123,14 +123,25 @@ class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
         messages.success(self.request, 'Your password has been reset successfully. You can log in with the new password.')
         return response
 
+# PRODUCT VIEWS
 def product_list(request):
     """Display the products"""
     if request.user.is_authenticated:
         products = Product.objects.all()
-        return render(request, "products.html", {'content': products})
+        return render(request, "products.html", {'products': products})
     else:
         messages.error(request, "You need to log in to view the products.")
         return redirect('home')
+
+def product_detail(request, id):
+    if request.user.is_authenticated:
+        product = Product.objects.get(pk=id)
+        messages.success(request, "Here are the details of the product")
+        return render(request, "product.html", {'product': product})
+    else:
+        messages.error(request, "You have to be logged in to view the product details.")
+        return redirect('home')
+
 
 # api configuration
 class ProductViewSet(viewsets.ModelViewSet):

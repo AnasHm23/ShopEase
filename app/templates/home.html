@@ -2,6 +2,7 @@
 {% load static %}
 {% load socialaccount %} 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <div class="background"></div>
 <section class="main">
   <div class="content">
@@ -144,7 +145,7 @@
   {% endif %}
 </section>
 <section class="explore">
-  <a href="#" class="link"> <i class="fas fa-search"></i> Explore Products </a>
+  <a href="{% url 'products' %}" class="link"> <i class="fas fa-search"></i> Explore Products </a>
   <a href="#" class="link">
     <i class="fas fa-shopping-cart"></i> Place Your Order
   </a>

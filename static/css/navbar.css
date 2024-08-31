@@ -1,70 +1,95 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg, #464646, #6d6c6b);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #464646, #6d6c6b);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 nav ul {
-    display: flex;
-    gap: 15px; 
-    padding: 0; 
-    margin: 0; 
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 }
-
 a {
-    display: flex;
-    justify-content: center;
-    color: rgb(185, 185, 185);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.custom {
-    width: 15%;
+  display: flex;
+  justify-content: center;
+  color: rgb(185, 185, 185);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .custom a {
-    color: silver;
+  display: flex;
+  justify-content: center;
+  color: rgb(185, 185, 185);
+  text-decoration: none;
+  font-weight: 500;
+  animation: swaying 4s ease 0.5s forwards;
 }
 
-.brand, 
+@keyframes swaying {
+  33% {
+    transform: rotate(10deg);
+  }
+  66% {
+    transform: rotate(-10deg);
+  }
+}
+
+.custom {
+  width: 15%;
+}
+
+.brand,
 .Auth {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    font-style: italic;
-    font-weight: 700;
-    background: linear-gradient(180deg, #7b7a79, #41403f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  font-style: italic;
+  background: linear-gradient(180deg, #7b7a79, #41403f);
+}
+
+.brand a,
+.Auth a {
+  font-weight: 800;
+  opacity: 1;
+  text-decoration: none;
+  color: rgb(185, 185, 185);
+}
+
+.brand:hover,
+.Auth:hover {
+  transform: scale(1.02);
 }
 
 .brand {
-    width: 15%;
+  width: 15%;
 }
 
 .Auth {
-    width: 15%;
+  width: 15%;
 }
 
 img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .Auth:focus {
-    background-color: black;
+  background-color: black;
 }
