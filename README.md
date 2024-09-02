@@ -34,7 +34,7 @@ This project is a fully functional e-commerce website developed using Django. it
 - Order Management (View Order History, Order Status)
 - Email Notifications (Order Confirmation, Shipping Updates)
 - Static and Media File Handling
-- Responsive UI using HTML, CSS, TailWind
+- Responsive UI using HTML, CSS, javascript
 - Secure and scalable
 - RESTful API
 
